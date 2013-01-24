@@ -1391,6 +1391,9 @@
                 if (!options) return null;
                 var button = document.createElement("button");
                 button.className = "btn";
+                if (options.className) {
+                    button.className += " " + options.className;
+                }
                 var buttonImage = document.createElement("i");
                 buttonImage.className = options.icon;
                 button.id = options.id + postfix;
