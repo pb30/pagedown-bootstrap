@@ -124,7 +124,7 @@
             if (panels)
                 return; // already initialized
 
-            panels = new PanelCollection(idPostfix);
+            panels = new PanelCollection(idPostfix, options.scope);
             var commandManager = new CommandManager(hooks, getString);
             var previewManager = new PreviewManager(markdownConverter, panels, function () { hooks.onPreviewRefresh(); });
             var undoManager, uiManager;
@@ -300,10 +300,10 @@
     // This ONLY affects Internet Explorer (tested on versions 6, 7
     // and 8) and ONLY on button clicks.  Keyboard shortcuts work
     // normally since the focus never leaves the textarea.
-    function PanelCollection(postfix) {
-        this.buttonBar = doc.getElementById("wmd-button-bar" + postfix);
-        this.preview = doc.getElementById("wmd-preview" + postfix);
-        this.input = doc.getElementById("wmd-input" + postfix);
+    function PanelCollection(postfix, scope) {
+        this.buttonBar = $(".wmd-button-bar" + postfix, scope).get(0);
+        this.preview = $(".wmd-preview" + postfix, scope).get(0);
+        this.input = $(".wmd-input" + postfix, scope).get(0);
     };
 
     // Returns true if the DOM element is visible, false if it's hidden.
