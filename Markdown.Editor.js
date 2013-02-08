@@ -1399,7 +1399,7 @@
                 button.id = options.id + postfix;
                 button.appendChild(buttonImage);
                 button.title = options.title;
-                $(button).tooltip({placement: 'bottom', html: false});
+                $(button).tooltip({placement: 'bottom', html: false, container: 'body'});
                 if (textOp)
                     button.textOp = textOp;
                 setupButton(button, true);
@@ -1468,7 +1468,7 @@
                 helpButton.id = options.button.help + postfix;
                 helpButton.isHelp = true;
                 helpButton.title = getString("help");
-                $(helpButton).tooltip({placement: 'bottom', html: false});
+                $(helpButton).tooltip({placement: 'bottom', html: false, container: 'body'});
                 helpButton.onclick = options.button.help.handler;
 
                 setupButton(helpButton, true);
